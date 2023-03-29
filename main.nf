@@ -1,20 +1,22 @@
 #!/usr/bin/env nextflow 
-params.timeout = 10 
 params.exit = 0
-params.cmd = "echo 'Hello (timeout $params.timeout)'"
-params.times = 1 
 
 process foo {
   machineType 'bar'
-  maxForks 1 
-  input: val(x)
-  /
-  bash -c "$params.cmd"
-  sleep $params.timeout
+  maxForks 1
+
+  input:
+  val x
+
+  script:
+  """
+  echo "Sleeping for $x seconds"
+  sleep $x
   exit $params.exit
-  /
+  """
 }
 
 workflow {
-  channel.of(1..params.times) | foo
+  def sleepTimes = [60, 60, 120, 120, 240, 240]
+  channel.of(*sleepTimes) | foo
 }
