@@ -17,6 +17,6 @@ process foo {
 }
 
 workflow {
-  def sleepTimes = [60, 60, 120, 120, 240, 240]
+  def sleepTimes = [2 * 60, 6 * 60]
   channel.of(*sleepTimes) | foo
 }
