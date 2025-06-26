@@ -5,7 +5,6 @@ params.cmd = "echo 'Hello (timeout $params.timeout)'"
 params.times = 1 
 
 process foo {
-  machineType 'bar'
   maxForks 1 
   input: val(x)
   /
