@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/nf-sleep/master/nextflow_schema.json",
+    "title": "nf-sleep pipeline parameters",
+    "description": "A simple Nextflow pipeline with sleep functionality",
+    "type": "object",
+    "definitions": {
+        "input_output_options": {
+            "title": "Input/Output options",
+            "type": "object",
+            "description": "Define pipeline execution parameters",
+            "properties": {
+                "timeout": {
+                    "type": "integer",
+                    "default": 10,
+                    "description": "Sleep duration in seconds before completing the process",
+                    "minimum": 0
+                },
+                "exit": {
+                    "type": "integer",
+                    "default": 0,
+                    "description": "Exit code to return from the process",
+                    "minimum": 0,
+                    "maximum": 255
+                },
+                "cmd": {
+                    "type": "string",
+                    "default": "echo 'Hello (timeout $params.timeout)'",
+                    "description": "Command to execute before sleeping"
+                },
+                "times": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Number of times to run the process",
+                    "minimum": 1
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output_options"
+        }
+    ]
+}
