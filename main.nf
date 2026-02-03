@@ -1,7 +1,8 @@
 #!/usr/bin/env nextflow 
-params.timeout = 10 
+params.greeting = "Hello"
+params.timeout = 10
 params.exit = 0
-params.cmd = "echo 'Hello (timeout $params.timeout)'"
+params.cmd = "echo '$params.greeting (sleeping $params.timeout seconds)'"
 params.times = 1 
 
 process foo {

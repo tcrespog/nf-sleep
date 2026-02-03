@@ -10,6 +10,12 @@
             "type": "object",
             "description": "Define pipeline execution parameters",
             "properties": {
+                "greeting": {
+                    "type": "string",
+                    "default": "Hello",
+                    "description": "Greeting message to display",
+                    "track_changes": false
+                },
                 "timeout": {
                     "type": "integer",
                     "default": 10,
