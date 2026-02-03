@@ -23,11 +23,6 @@
                     "minimum": 0,
                     "maximum": 255
                 },
-                "cmd": {
-                    "type": "string",
-                    "default": "echo 'Hello (timeout $params.timeout)'",
-                    "description": "Command to execute before sleeping"
-                },
                 "times": {
                     "type": "integer",
                     "default": 1,
